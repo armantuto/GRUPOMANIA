@@ -1,0 +1,10 @@
+.bar {
+    background-color: wheat;
+    padding: 2px;
+
+}
+
+.bar ul{
+    display: flex;
+    justify-content: space-evenly;
+}

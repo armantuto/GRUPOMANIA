@@ -1,0 +1,220 @@
+.container1{
+    width: 100%;
+   height: 120px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   box-shadow: 0px 5px 10px  rgb(206, 206, 206);
+   background-color: white;
+   position: fixed;
+   top: 0;
+   padding: .5%;
+   z-index: 5;
+  
+   
+  
+
+}
+
+.iconsH{
+    display: flex;
+    padding: 5%;
+
+}
+.iconsHome{
+    margin-top: 15px;
+   display: flex;
+flex-direction: column;
+   justify-content: center;
+   align-items: center; 
+   color: transparent;
+   padding: 3%;
+  span{
+    padding: 5%;
+    font-size: smaller;
+    border-radius: 8px ;
+    padding: 5% 10%;
+    font-weight: bold;
+    color: transparent;
+
+   
+  }
+}
+
+.iconsHome:hover{
+    span{
+        font-size:smaller ;
+        color: white;
+        background-color: rgba(37, 37, 37, 0.76);
+        padding: 5% 10%;
+        border-radius: 8px ;
+        transition: 1s;
+        font-weight: bold;
+
+    }
+ 
+    
+}
+
+.logo1{
+    width: 100%;
+    max-height: 320px;
+    min-width: 260px;
+    display: flex;
+    flex-direction: column;
+    object-position: center;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    
+}
+
+
+.usersId{
+    
+    display: flex;
+    justify-content: space-around;
+    z-index: 1;
+    align-items: center;
+    padding: .5%;
+    margin-top: 10%;
+    padding-right: 1%;
+    
+
+}
+
+.usersId h5{
+    color: black;
+}
+
+.sss{
+    width: 60px;
+    border-radius: 40%;
+    padding: 10%;
+    cursor: pointer;
+
+}
+
+.sss2{
+    width: 60px;
+    border-radius: 40%;
+    padding: 0 10%;
+    cursor: pointer;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+/* active*/
+
+.container2{
+    width: 100%;
+   height: 120px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   box-shadow: 0px 5px 10px  rgb(206, 206, 206);
+   position: fixed;
+   background-color: white;
+   top: 0;
+   padding-left: 8%;
+  
+
+}
+
+
+
+.logoP2{
+    display: flex;
+    
+}
+
+.logo2{
+    max-height: 320px;
+    display: flex;
+    flex-direction: column;
+    object-position: center;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    
+}
+
+.inactive{
+    display: none;
+}
+
+
+.ocult{
+    display: none;
+}
+
+ .ocult{
+        display: block;
+        text-align: center;
+        background-color: beige;
+        margin-top: 20%;
+
+  }
+ .bord{
+        border: 0.2px solid rgb(212, 212, 212);
+        cursor: pointer;
+   }
+    .bord:hover{
+        background-color: #FFD7D7;
+    }
+
+
+    /* .ocult{
+        display: none;
+    } */
+
+    @media(max-width: 460px){
+        .container1{
+            width: 100%;
+            height: 175px;
+            display: flex;
+            flex-direction: column;
+            
+            
+        }
+        .iconsH{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 3%;
+        }
+        .iconsHome{
+            margin-top: 0;
+        }
+        .logoP{
+            text-align: center;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+
+            
+        }
+        .logo1{
+
+           margin-left: 8%;
+           margin-top: 5%;
+           
+            }
+            .sss2{
+                margin-top: 0;
+                width: 55px;
+            }
+    }
+
+    @media(max-width: 380px){
+        .container1{
+            width: 100%;
+            height: 150px;
+        }}

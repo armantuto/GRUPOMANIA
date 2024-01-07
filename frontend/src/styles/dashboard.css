@@ -1,0 +1,541 @@
+.dashboardCont{
+    margin-top: 190px;
+   
+}
+
+.dashboard{
+    margin: 2%;
+ 
+
+}
+
+/* .inputSearch{
+    width: 22%;
+    height: 60px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgb(145, 142, 142);
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    align-items: center;
+    
+}
+
+.inputSearch .input{
+    width: 70%;
+    height: 35px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 4%;
+    border: none;
+    background-color: rgba(236, 236, 236, 0.74);
+    outline: none;
+}
+
+.svgL{
+    width: 60px;
+    border-radius: 50%;
+    
+} */
+
+
+/* post*/
+.mainPublish{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 10%;
+}
+
+
+.publishPost{
+    width: 50%;
+    box-shadow: 3px 3px 15px rgb(145, 142, 142);
+    border-radius: 10px;
+    padding: 0%;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-bottom: 4%;
+    margin-top: 0px;
+    padding: 1%;
+    padding-bottom: 2.5%;
+    
+}
+ .none{
+    display: none;
+ }
+
+
+ .imagePreview{
+    margin:  0 12%;
+    padding: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    border: 0.2px solid rgb(206, 205, 205);
+    border-radius: 40px;
+ }
+
+ #imagePreview{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    object-fit: cover;
+    text-align: center;
+    
+ }
+.fotcom{
+    display: flex;
+    
+}
+.fotcom img{
+    margin-top: 5%;
+
+}
+
+.fotcom input{
+    outline: none;
+    width: 100%;
+    margin-top: 5%;
+    border-radius: 8px;
+    border: none;
+    background-color: rgb(236, 234, 234);
+    padding-left: 5%;
+    
+}
+
+.i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+    padding-left: 3%;
+    span{
+          padding: 5%;
+            font-size: smaller;
+            border-radius: 8px ;
+            padding: 5% 10%;
+            font-weight: bold;
+            color: transparent;     
+          
+    }
+}
+
+
+.i img{
+    padding-left: 2%;
+    width: 45px;
+    cursor: pointer;
+
+}
+
+.iconFoto:hover{
+    span{
+        font-size:smaller ;
+        color: white;
+        background-color: rgba(37, 37, 37, 0.76);
+        padding: 5% 10%;
+        border-radius: 8px ;
+        transition: 1s;
+        font-weight: bold;
+
+    }
+ 
+}
+
+.iconSend:hover{
+    span{
+        font-size:smaller ;
+        color: white;
+        background-color: rgba(37, 37, 37, 0.76);
+        padding: 5% 10%;
+        border-radius: 8px ;
+        transition: 1s;
+        font-weight: bold;
+
+    }
+}
+
+.btn.btn-grey{
+    background-color: grey;
+    margin-right: 8%;
+}
+
+
+.posters{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8%;
+    margin-top: 0px;
+   
+}
+
+
+.fotoPostUser{
+    width: 70px;
+    border-radius: 20%;
+    margin:  3%;
+    margin-top: 10%;
+}
+
+
+
+.post{
+    width: 50%;
+    box-shadow: 3px 3px 15px rgb(145, 142, 142);
+    border-radius: 10px;
+    padding: 0%;
+    background-color: white
+    
+    
+}
+
+.postear{
+    display: flex;
+    justify-content: space-between; 
+    
+}
+
+.UserDataCont{
+    display: flex;
+    align-items: center;
+    margin-top: 5%;
+    width: 40%;
+    margin-left: 5%;
+
+}
+
+.UserDetails{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    width: 150px;
+    margin-left: 5%;
+}
+
+.name{
+    font-weight: bold;
+}
+
+.data{
+    font-size: smaller;
+    font-style: oblique;
+}
+
+
+.equis{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3%;
+    
+}
+
+.postContent{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-top: 2%;
+    margin-left: 12%;
+    font-weight: 500;
+
+ 
+
+}
+
+.imgPost{
+    width: 80%;
+    height: 250px;
+    margin: 5% 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+    border: 0.2px solid rgb(206, 205, 205);
+    padding: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+   
+}
+
+.buttons{
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    color: white;
+}
+
+.like{
+    background-color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 0 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.likeactive{
+    background-color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 0 10px;
+    color: blue;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.coments{
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+
+
+.sendPost{
+    cursor: pointer;
+    font-size: x-large;
+    
+}
+
+
+.coments input{
+    width: 80%;
+    height: 50px;
+    border-radius:  20px 20px 0px 0px;
+    border: none;
+    padding-left: 40px;
+    outline: none;
+
+}
+
+.coments-to{
+    width: 80%;
+    margin: 0 10%;
+    margin-bottom: 2%;
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.coments-in{
+    width: 100%;
+    height: 60px;
+    background-color: white;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+
+.input-com{
+    background-color: rgba(173, 169, 167, 0.144);
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+}
+
+.comments-user{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-right: 15%;
+    
+}
+
+.comment-user-comment{
+    margin-left: 3%;
+    font-weight: bold;
+    font-size: smaller;
+}
+.svgcoments{
+        width: 40px;
+        border-radius: 50%;
+        margin-right: 2%;
+}
+
+.coments-in input{
+    background-color: rgba(173, 169, 167, 0.144);
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+    outline: none;
+    border: none;
+    
+}
+.inputEdit{ 
+    display: flex;
+
+    border-radius: 10px;
+    padding: 1px;
+    width: 100%;
+
+    
+}
+.inputEdit button{
+    border: none;
+    background-color: none;
+   background-color: white;
+}
+
+.button-comments{
+    background-color: none;
+    border: none;
+    height: 30px;
+    margin-left: 20%;
+}
+
+
+
+
+.button-comments1{
+    background-color: none;
+    border: none;
+    height: 30px;
+    margin-left: 30%;
+  
+    
+}
+
+
+
+.button-save{
+    width: 30px;
+    border-radius: 20px;
+}
+
+.button-comments2{
+    width: 0%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.button-comments2 img {
+    width: 30px;
+    display: flex;
+    
+}
+
+.editB{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+
+}
+
+
+
+@media(max-width: 867px){
+    .post{
+    
+        width: 100%;
+    }
+
+    .inputSearch{
+        width: 80%;
+        margin: 0 10%;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .publishPost{
+        width: 98%;
+    }
+    .i{
+        padding: 0%;
+        margin: 0%;
+    }
+    .i img{
+        width: 30px;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50%;
+    }
+    .fotocom input{
+        padding: 0%;
+        width: 100%;
+    }
+    .mainPublish{
+        justify-content: space-around;
+    }
+    .publish{
+        justify-content: space-evenly;
+    }
+    .fotoPostUser{
+        width: 45px;
+        border-radius: 20%;
+    }
+    .iconFoto:hover{
+        span{
+            display: none;
+            padding: 2% 5%;
+        }
+    }
+    .iconFoto{
+        span{
+            display: none;
+            padding: 2% 5%;
+        }
+    }
+    .iconSend{
+        span{
+            display: none;
+            font-size:smaller ;
+            color: white;
+            background-color: rgba(37, 37, 37, 0.76);
+            padding: 2% 3%;
+            border-radius: 8px ;
+            transition: 1s;
+            font-weight: bold;
+    
+        }
+    }
+    .iconSend:hover{
+        span{
+            display: none;
+            font-size:smaller ;
+            color: white;
+            background-color: rgba(37, 37, 37, 0.76);
+            padding: 2% 3%;
+            border-radius: 8px ;
+            transition: 1s;
+            font-weight: bold;
+    
+        }
+    }
+    .dashboard{
+        margin-top: 175px;
+    }
+    .btn.btn-grey{
+        background-color: grey;
+        margin-right: 5%;
+        font-size: smaller;
+    
+    }
+    .equis{
+        font-size: smaller;
+    }
+    .name{
+        font-size: small;
+        
+    }
+    .editB{
+        flex-direction: column;
+    }
+    .data{
+font-size: xx-small;
+    }
+  
+}
