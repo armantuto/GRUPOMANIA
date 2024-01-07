@@ -24,7 +24,7 @@ Post.init(
   { tableName: "posts", sequelize: database }
 );
 
-// Post.sync(); ESTO LO USO CON SEQUALIZE EN LOCAL ARCHIVO
+ //Post.sync();// ESTO LO USO CON SEQUALIZE EN LOCAL ARCHIVO
 
 
 module.exports = { Post };

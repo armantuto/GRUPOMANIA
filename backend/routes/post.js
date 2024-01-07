@@ -12,7 +12,7 @@ router.get("/:id",auth ,controller.getById);
 router.get("/user/:id", auth, controller.getPostOfuser)
 router.post("/:id", [auth,multer],controller.create);
 router.put("/:id", [auth,multer],controller.update);
-router.delete("/",auth,controller.delete);
+router.delete("/:id",auth,controller.delete);
 
 
 module.exports = router;

@@ -2,7 +2,6 @@ const { Post } = require("../database/models/post");
 const { User } = require("../database/models/user");
 const { Comment } = require("../database/models/comments");
 const fs = require("fs");
-const { where } = require("sequelize");
 const { Like } = require("../database/models/likes");
 
 exports.create = async (req, res, next) => {

@@ -20,6 +20,7 @@ const PostComponent = ({ posts, onRefresh }) => {
     /*CREA EL POST*/
     const handleDeletePost = async (postId) => {
         try {
+            console.log('Trying to delete post with ID:', postId);
             const token = localStorage.getItem('token');
             const deletePostResponse = await fetch(`http://localhost:4200/api/posts/${postId}`, {
                 method: 'DELETE',
@@ -28,7 +29,7 @@ const PostComponent = ({ posts, onRefresh }) => {
                     'Authorization': `Bearer ${token}`,
                 },
             });
-
+            console.log(deletePostResponse)
             if (deletePostResponse.ok) {
                 console.log('Post eliminado exitosamente');
                 onRefresh(); // Actualiza la lista de posts después de la eliminación

@@ -47,24 +47,41 @@ exports.login = async (req, res, next) => {
   }
 };
 
+
 exports.delete = async (req, res, next) => {
   try {
     const current_user = req.user.userId;
-    console.log("Userid", current_user)
+    console.log("Userid", current_user);
 
     const id = req.params.id;
     console.log(id);
     const user = await User.findOne({ where: { id: id } });
     if (!user) {
-      return res.status(400).json({ error: "user not found" })
+      return res.status(400).json({ error: "user not found" });
     }
-    if (current_user != user.id) res.status(400).json({ error: "The user is not you, only can delete yourself" })
-    await User.destroy({ where: { id: id } })
+    if (current_user != user.id) res.status(400).json({ error: "The user is not you, only can delete yourself" });
+
+    // Obtén la ruta de la imagen del usuario antes de eliminar el usuario
+  
+
+    // Elimina la foto del usuario si existe
+    if (user.image) {
+      
+      const previousImagePath = `imagesUsers/${user.image.split('/imagesUsers/')[1]}`;
+      fs.unlink(previousImagePath, (err) => {
+        if (err) {
+          console.error('Error deleting previous image:', err);
+        }
+      })
+    }
+
+    await User.destroy({ where: { id: id } });
     return res.status(200).json(user);
   } catch (error) {
-   return res.status(400).json({ error: error.message });
-  } 
+    return res.status(400).json({ error: error.message });
+  }
 };
+
 
 exports.get = async (req, res, next) => {
   try {
