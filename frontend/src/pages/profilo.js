@@ -6,13 +6,7 @@ import UserDefault from '../GRUPOMANIA IMG/userDefault.png'
 
 const Profilo = (props) => {
     const navigate = useHistory();
-    useEffect(() => {
-        // Recuperar el estado desde localStorage al cargar el componente
-        const storedLoggedIn = localStorage.getItem('token');
-        if (!storedLoggedIn) {
-            navigate.push('/');
-        }
-    }, []);
+ 
     useEffect(() => {
         // Recuperar el estado desde localStorage al cargar el componente
         const storedLoggedIn = localStorage.getItem('token');
@@ -33,7 +27,6 @@ const Profilo = (props) => {
                 headers: myHeaders
             });
             if (response.ok) {
-                console.log("here2")
                 //console.log(newposts)
                 if (response.ok) {
                     const newposts = await response.json();

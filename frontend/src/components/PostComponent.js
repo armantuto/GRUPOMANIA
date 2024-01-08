@@ -164,6 +164,8 @@ const PostComponent = ({ posts, onRefresh }) => {
             console.error('Error:', error);
         }
     };
+
+    /* MODAL*/
     const openModal = (imageUrl) => {
         setSelectedImage(imageUrl);
         setIsModalOpen(true);

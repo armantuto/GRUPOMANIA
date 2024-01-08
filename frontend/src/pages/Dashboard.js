@@ -29,8 +29,7 @@ const Dashboard = () => {
                 headers: myHeaders
             });
             if (response.ok) {
-                const newUserId = await response.json();
-                console.log(newUserId)
+                const newUserId = await response.json(); 
                 setUser(newUserId)
                 // aqui tengo el array de los posts
             }
