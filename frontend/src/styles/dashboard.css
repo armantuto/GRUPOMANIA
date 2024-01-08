@@ -60,8 +60,8 @@
     flex-direction: column;
     margin-bottom: 4%;
     margin-top: 0px;
-    padding: 1%;
-    padding-bottom: 2.5%;
+    padding: 0%;
+    padding-bottom: 0%;
     
 }
  .none{
@@ -95,18 +95,19 @@
     
 }
 .fotcom img{
-    margin-top: 5%;
+    margin-top: 3%;
 
 }
 
 .fotcom input{
     outline: none;
     width: 100%;
-    margin-top: 5%;
+    margin-top: 6%;
     border-radius: 8px;
     border: none;
     background-color: rgb(236, 234, 234);
     padding-left: 5%;
+    margin-bottom: 4%;
     
 }
 
@@ -114,7 +115,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 2%;
+    margin-top: 0%;
     padding-left: 3%;
     span{
           padding: 5%;
@@ -273,6 +274,7 @@
     display: flex;
     justify-content: space-evenly;
     color: white;
+    margin: 0;
 }
 
 .like{

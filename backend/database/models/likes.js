@@ -1,8 +1,8 @@
 const { Model, DataTypes } = require("sequelize");
-//const { database } = require("../connectionSequelize");
+const { database } = require("../connectionSequelize");
 const { User } = require("./user");
 const { Post } = require("./post");
-const { database } = require("../databaseMMSQL");
+//const { database } = require("../databaseMMSQL");
 
 class Like extends Model {}
 

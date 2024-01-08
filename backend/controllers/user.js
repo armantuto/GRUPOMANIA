@@ -63,7 +63,6 @@ exports.delete = async (req, res, next) => {
 
     // Obtén la ruta de la imagen del usuario antes de eliminar el usuario
   
-
     // Elimina la foto del usuario si existe
     if (user.image) {
       
@@ -75,6 +74,18 @@ exports.delete = async (req, res, next) => {
       })
     }
 
+    const userPosts = await Post.findAll({ where: { userId: id } });
+    for (const post of userPosts) {
+      if (post.imageUrl) {
+        const postImagePath = `images/${post.imageUrl.split('/images/')[1]}`;
+        fs.unlink(postImagePath, (err) => {
+          if (err) {
+            console.error('Error deleting previous image:', err);
+          }
+        })
+      }
+    }
+    
     await User.destroy({ where: { id: id } });
     return res.status(200).json(user);
   } catch (error) {

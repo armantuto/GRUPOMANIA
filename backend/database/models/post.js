@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
-// const { database } = require("../connectionSequelize");
-const { database } = require("../databaseMMSQL");
+const { database } = require("../connectionSequelize");
+//const { database } = require("../databaseMMSQL");
 
 
 class Post extends Model {}
