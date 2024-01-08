@@ -1,8 +1,8 @@
 const { Model, DataTypes } = require("sequelize");
-// const { database } = require("../connection");
+//const { database } = require("../connectionSequelize");
 const { User } = require("./user");
 const { Post } = require("./post");
-const { database } = require("../database");
+const { database } = require("../databaseMMSQL");
 
 class Like extends Model {}
 
@@ -48,6 +48,6 @@ Like.belongsTo(Post, {
 })
 
 
-// Like.sync() ESTO LO USO CON SEQUALIZE EN LOCAL ARCHIVO
+ //Like.sync() //ESTO LO USO CON SEQUALIZE EN LOCAL ARCHIVO
 
 module.exports = {  Like };
