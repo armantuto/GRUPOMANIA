@@ -58,7 +58,6 @@ const YourComponent = () => {
         if (response.ok) {
           const token = await response.json();
           if (token) {
-            console.log("exitosa");
             // Actualiza el estado de autenticación    
             localStorage.setItem('token', token)
             // Redirecciona a la página deseada
@@ -106,7 +105,6 @@ const YourComponent = () => {
           if (response.ok) {
             const token = await response.json();
             if (token) {
-              console.log("exitosa");
               // Actualiza el estado de autenticación   
               localStorage.setItem('token', token)
               // Redirecciona a la página deseada

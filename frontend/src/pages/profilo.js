@@ -7,8 +7,13 @@ import UserDefault from '../GRUPOMANIA IMG/userDefault.png'
 const Profilo = (props) => {
     const navigate = useHistory();
     useEffect(() => {
-        console.log("idpassed", props.match.params.id)
-        //if(props.match.params.id === undefined) 
+        // Recuperar el estado desde localStorage al cargar el componente
+        const storedLoggedIn = localStorage.getItem('token');
+        if (!storedLoggedIn) {
+            navigate.push('/');
+        }
+    }, []);
+    useEffect(() => {
         // Recuperar el estado desde localStorage al cargar el componente
         const storedLoggedIn = localStorage.getItem('token');
         if (!storedLoggedIn) {
@@ -34,7 +39,6 @@ const Profilo = (props) => {
                     const newposts = await response.json();
                     // Ordenar los posts por fecha descendente
                     newposts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-                    console.log("postsprofile", newposts)
                     setPostsId(newposts);
                     // aqui tengo el array de los posts
                 } else {
@@ -64,7 +68,6 @@ const Profilo = (props) => {
             });
             if (response.ok) {
                 const newUserId = await response.json();
-                console.log(newUserId, "mamaaaaaaaaaaaaaaaaaaaaa")
                 setUser(newUserId)
                 // aqui tengo el array de los posts
             } else {

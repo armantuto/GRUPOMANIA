@@ -5,39 +5,8 @@
 
 .dashboard{
     margin: 2%;
- 
 
 }
-
-/* .inputSearch{
-    width: 22%;
-    height: 60px;
-    border-radius: 10px;
-    box-shadow: 5px 5px 5px rgb(145, 142, 142);
-    display: flex;
-    justify-content: space-evenly;
-    text-align: center;
-    align-items: center;
-    
-}
-
-.inputSearch .input{
-    width: 70%;
-    height: 35px;
-    text-align: center;
-    border-radius: 10px;
-    margin: 4%;
-    border: none;
-    background-color: rgba(236, 236, 236, 0.74);
-    outline: none;
-}
-
-.svgL{
-    width: 60px;
-    border-radius: 50%;
-    
-} */
-
 
 /* post*/
 .mainPublish{

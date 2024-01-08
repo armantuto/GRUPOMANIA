@@ -7,6 +7,13 @@ import { useHistory } from 'react-router-dom';
 
 
 const Edit = () => {
+  useEffect(() => {
+      // Recuperar el estado desde localStorage al cargar el componente
+      const storedLoggedIn = localStorage.getItem('token');
+      if (!storedLoggedIn) {
+          navigate.push('/');
+      }
+  }, []);
   const navigate = useHistory()
   const [user, setUser] = useState([])
   const [userId, setUserId] = useState([])
@@ -22,10 +29,7 @@ const Edit = () => {
       });
       if (response.ok) {
         const newUserId = await response.json();
-        //console.log(newposts)
-        console.log(newUserId.id)
         setUserId(newUserId.id)
-        console.log(userId)
         setUser(newUserId)
         setFirstName(newUserId.firstName)
         setLastName(newUserId.lastName)
@@ -71,7 +75,6 @@ const Edit = () => {
         body: formData
       });
       if (updateUsertResponse.ok) {
-        console.log('usuario actualizado exitosamente');
         getUserId();
         navigate.push('/dashboard');
         ; // Actualiza la lista de comentarios después de la actualización

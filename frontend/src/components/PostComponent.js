@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { dateFormat, getCurrentUser } from '../utils/utils';
 import CommentComponent from './CommentComponent';
 import { AiFillLike } from "react-icons/ai";
@@ -31,7 +31,6 @@ const PostComponent = ({ posts, onRefresh }) => {
             });
             console.log(deletePostResponse)
             if (deletePostResponse.ok) {
-                console.log('Post eliminado exitosamente');
                 onRefresh(); // Actualiza la lista de posts después de la eliminación
             } else {
                 console.error('Error al eliminar el post', deletePostResponse.statusText);
@@ -43,10 +42,7 @@ const PostComponent = ({ posts, onRefresh }) => {
     /*BORRA EL COMENTO*/
     const handleCreateComment = async (postId) => {
         try {
-            console.log("here", postId)
-            console.log("here", newComment)
             const token = localStorage.getItem('token');
-
             // Asegúrate de que currentPostId tenga un valor antes de intentar crear un comentario
             if (postId === null) {
                 console.error('No se ha seleccionado un post para comentar.');
@@ -63,7 +59,7 @@ const PostComponent = ({ posts, onRefresh }) => {
             });
             if (response.ok) {
                 const newUserId = await response.json();
-                const final = newUserId.id
+               console.log(newUserId) 
                 //setUserD(final)
             }
 
@@ -113,9 +109,7 @@ const PostComponent = ({ posts, onRefresh }) => {
                     'Authorization': `Bearer ${token}`,
                 },
             });
-
             if (deleteCommentResponse.ok) {
-                console.log('Comentario eliminado exitosamente');
                 onRefresh(); // Actualiza la lista de comentarios después de la eliminación
             } else {
                 console.error('Error al eliminar el comentario', deleteCommentResponse.statusText);
@@ -139,7 +133,6 @@ const PostComponent = ({ posts, onRefresh }) => {
             });
 
             if (updateCommentResponse.ok) {
-                console.log('Comentario actualizado exitosamente');
                 onRefresh(); // Actualiza la lista de comentarios después de la actualización
             } else {
                 console.error('Error al actualizar el comentario', updateCommentResponse.statusText);
@@ -163,7 +156,6 @@ const PostComponent = ({ posts, onRefresh }) => {
             });
 
             if (doLikeResponse.ok) {
-                console.log('like actualizado exitosamente');
                 onRefresh(); // Actualiza la lista de comentarios después de la actualización
             } else {
                 console.error('Error al actualizar el like', doLikeResponse.statusText);
@@ -185,7 +177,6 @@ const PostComponent = ({ posts, onRefresh }) => {
         <>
             {posts?.map(post => (
                 <div className='posters' key={post.id}>
-
                     <div className='post'>
                         <div className='postear'>
                             <div className='UserDataCont'>
@@ -221,7 +212,7 @@ const PostComponent = ({ posts, onRefresh }) => {
                         {isModalOpen && (
                             <div className="modal">
                                 <div className="modal-content">
-                                    <span className="close" onClick={closeModal}><IoCloseCircleSharp /></span>
+                                    <div className="close" onClick={closeModal}><IoCloseCircleSharp /></div>
                                     <img src={selectedImage} alt="post" className="modal-image" />
                                 </div>
                             </div>

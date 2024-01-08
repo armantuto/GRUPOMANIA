@@ -4,6 +4,13 @@ import '../styles/editPost.css'
 import Upload from '../GRUPOMANIA IMG/upload.svg'
 
 const EditPost = (props) => {
+    useEffect(() => {
+        // Recuperar el estado desde localStorage al cargar el componente
+        const storedLoggedIn = localStorage.getItem('token');
+        if (!storedLoggedIn) {
+            navigate.push('/');
+        }
+    }, []);
     const [content, setContent] = useState("")
     const [imgPost, setImgPost] = useState(null)
     const [post, setPost] = useState([])
@@ -22,7 +29,6 @@ const EditPost = (props) => {
             });
             if (response.ok) {
                 const post = await response.json();
-                console.log(post)
                 setPost(post)
                 setContent(post.content)
                 // aqui tengo el array de los posts
@@ -101,7 +107,7 @@ const EditPost = (props) => {
                 />
                 {imagePreview && (
                     <div className='editArea'>
-                        <img className="imagePreviewProfile" id="imagePreviewP" src={imagePreview} alt="Image Preview" />
+                        <img className="imagePreviewProfile" id="imagePreviewP" src={imagePreview} alt="ImagePreview" />
 
                     </div>
                 )}

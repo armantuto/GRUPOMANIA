@@ -61,7 +61,6 @@ const Dashboard = () => {
             });
             if (response.ok) {
                 const newposts = await response.json();
-                console.log("post", newposts)
                 // Ordenar los posts por fecha descendente
                 newposts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
                 setPosts(newposts);
