@@ -21,9 +21,8 @@ in your terminal:
   
   - Open SQL Management Studio and create an empty database named GRUPOMANIA (REMEMBER THAT YOU MUST HAVE SQL SERVER MANAGEMENT STUDIO INSTALLED.).
   - GO TO THE DATABASE FOLDER, SELECT THE FILE databaseMSSQL.JS, AND ENTER YOUR LOCAL DATABASE DETAILS.
-    
-  -LATER, GO TO THE MODELS FOLDER IN THE DATABASE DIRECTORY, AND IN ALL THE MODELS (COMMENTS, LIKES, POST, USERS), USE THE CONNECTION const { database } = require("../databaseMMSQL").
-  -FINALLY, IN THE BACKEND FOLDER, IN THE app.js FILE, SELECT THE CONNECTION // const { database } = require("./database/databaseMMSQL");
+  - LATER, GO TO THE MODELS FOLDER IN THE DATABASE DIRECTORY, AND IN ALL THE MODELS (COMMENTS, LIKES, POST, USERS), USE THE CONNECTION const { database } = require("../databaseMMSQL").
+  - FINALLY, IN THE BACKEND FOLDER, IN THE app.js FILE, SELECT THE CONNECTION // const { database } = require("./database/databaseMMSQL");
   
     -Finally:
 
