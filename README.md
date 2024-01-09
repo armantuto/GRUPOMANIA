@@ -16,7 +16,7 @@ in your terminal:
 
 
 
-  -# You can also use SQL Management Studio
+## You can also use SQL Management Studio
    in this case:
   
   - Open SQL Management Studio and create an empty database named GRUPOMANIA (REMEMBER THAT YOU MUST HAVE SQL SERVER MANAGEMENT STUDIO INSTALLED.).
