@@ -12,7 +12,7 @@
 ## backend
 in your terminal:
 - run `npm install` in the backend folder
-- run the backend by running `npm run start` from the backend folder
+- run the backend by running `npm run start` from the backend folder.
 
 
 
