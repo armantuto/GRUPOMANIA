@@ -9,8 +9,8 @@ import { useHistory } from 'react-router-dom';
 const Edit = () => {
   useEffect(() => {
       // Recuperar el estado desde localStorage al cargar el componente
-      const storedLoggedIn = localStorage.getItem('token');
-      if (!storedLoggedIn) {
+      const token = localStorage.getItem('token')
+      if (!token) {
           navigate.push('/');
       }
   }, []);
@@ -134,7 +134,7 @@ const Edit = () => {
 
   return (
     <div className='editPerfile'>
-      <h1>Perfile</h1>
+      <h1>Profile</h1>
       {user.image === null ? (
         <img className='fotoPostUserEdit' src={UserDefault} alt='fotoUser' />
       ) :
@@ -143,7 +143,7 @@ const Edit = () => {
         )
       }
       <div className='editInput'>
-        <label htmlFor="Name">firstName</label>
+        <label htmlFor="Name">First Name:</label>
         <input
           id="Name"
           name="Name"
@@ -152,7 +152,7 @@ const Edit = () => {
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
         />
-        <label htmlFor="Name">LastName</label>
+        <label htmlFor="Name">Last Name:</label>
         <input
           id="Name"
           name="Name"
@@ -161,7 +161,7 @@ const Edit = () => {
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
         />
-        <label htmlFor="imageUpload">Add/Change Perfile Photo: <img src={Upload} className='fotoLoad' alt='LoadPhoto' /></label>
+        <label htmlFor="imageUpload">Add/Change Profile Photo: <img src={Upload} className='fotoLoad' alt='LoadPhoto' /></label>
         <input className='none'
           type="file"
           id="imageUpload"

@@ -1,10 +1,6 @@
 # Faltante
 
-Delete account profile
 
-Ajustar CSS
-
-Agregar la condition a todos los endpoints quando el token es invalido
 
 probar con diferentes usarios 
 

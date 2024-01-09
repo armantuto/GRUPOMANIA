@@ -1,5 +1,5 @@
 import './App.css';
-import { Switch, Route,Redirect   } from 'react-router-dom';
+import { Switch, Route,Redirect } from 'react-router-dom';
 import Login from './pages/login.js';
 import Dashboard from './pages/Dashboard.js';
 import NavBar from './components/navbar.js';
@@ -14,8 +14,8 @@ function MainComponent() {
       <Route exact path='/dashboard' component={Dashboard} />
       <Route exact path='/perfile/:id' component={Profilo} />
       <Route exact path='/post/:id' component={EditPost} />
-      <Route exact path='/edit' component={Edit} />
-      <Redirect to='/dashboard' />
+      <Route exact path='/edit' component={Edit}/>
+      <Redirect to='/dashboard'/>
     </div>)
 }
 function App() {
@@ -23,8 +23,8 @@ function App() {
     <>
       <Switch>
         <Route exact path='/' component={Login} />
-       <Route component={MainComponent} />  
-       <Redirect to='/' />
+       <Route  component={MainComponent} />  
+       <Redirect to={Login}/>
          </Switch>
     </>
   );

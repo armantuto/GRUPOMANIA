@@ -5,6 +5,7 @@ import Sendicon from '../GRUPOMANIA IMG/send.svg'
 import Upload from '../GRUPOMANIA IMG/upload.svg'
 import PostComponent from '../components/PostComponent';
 import UserDefault from '../GRUPOMANIA IMG/userDefault.png'
+import { Link } from 'react-router-dom';
 
 
 const Dashboard = () => {
@@ -156,7 +157,7 @@ const Dashboard = () => {
                                 <img src={user.image} className='fotoPostUser' alt='userPhoto' />
                             )
                         }
-                        <input id='inputContent' value={content} onChange={handleContentChange} type='text' placeholder={'what do you thingking?' + '  ' + user?.firstName} />
+                        <input id='inputContent' value={content} onChange={handleContentChange} type='text' placeholder={'Post something' + '  ' + user?.firstName} />
                         <div className='i'>
                             <div className='iconFoto'>
                                 <span>AddPhoto</span>
@@ -183,8 +184,26 @@ const Dashboard = () => {
                     )}
                 </div>
             </div>
-            <PostComponent posts={posts} onRefresh={() => getPosts()} />
+            {user.image === null? (
+                      <Link to={"/edit"}>
+                      <div className='no-posts-messagePhoto'>
+                     Add profile picture ?
+                       </div>
+                           </Link>
+                ) : (<div></div>) }
+            {posts.length === 0 ? (
+            <div className='no-posts-message'>
+                <div>Without Posts yet...</div> 
+            </div>
+            
+        ) :
+            (
+                <PostComponent posts={posts} onRefresh={() => getPosts()} />
+            )
+        }
+         
         </div>
+        
     </div>
     );
 };

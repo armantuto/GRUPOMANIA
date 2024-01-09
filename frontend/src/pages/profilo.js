@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import '../styles/profile.css'
 import PostComponent from '../components/PostComponent';
 import UserDefault from '../GRUPOMANIA IMG/userDefault.png'
@@ -94,10 +94,18 @@ const Profilo = (props) => {
                 </div>
             </div>
         </div>
+        {user.image === null? (
+                      <Link to={"/edit"}>
+                      <div className='no-posts-messagePhoto'>
+                     Add profile picture ?
+                       </div>
+                           </Link>
+                ) : (<div></div>) }
         {postsId.length === 0 ? (
             <div className='no-posts-message'>
-                <p>Without Posts yet</p>
+                  <div>Without Posts yet...</div> 
             </div>
+
         ) :
             (
                 <PostComponent posts={postsId} onRefresh={() => getPostsId()} />
