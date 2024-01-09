@@ -1,6 +1,6 @@
 ﻿# GRUPOMANIA
 
-  The app is configured with Sequelize locally.
+  The app is configured with Sql Lite
 
   to be able to run this code you will have to:
 
