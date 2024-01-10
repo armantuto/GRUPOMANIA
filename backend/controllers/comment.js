@@ -1,9 +1,6 @@
 const { Post } = require("../database/models/post");
 const { User } = require("../database/models/user");
 const { Comment } = require("../database/models/comments")
-const auth = require("../middleware/auth");
-
-
 
 exports.get = async (req, res, next) => {
     try {

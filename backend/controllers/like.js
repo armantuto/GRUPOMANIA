@@ -3,7 +3,6 @@ const { User } = require("../database/models/user");
 const { Like } = require("../database/models/likes");
 
 
-
 exports.create = async (req, res, next) => {
     try {
         const current_user = req.user.userId;

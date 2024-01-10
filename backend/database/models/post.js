@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
-const { database } = require("../connectionSequelize");
 //const { database } = require("../databaseMMSQL");
+const { database } = require("../connectionSequelize");
 
 
 class Post extends Model {}
@@ -24,7 +24,6 @@ Post.init(
   { tableName: "posts", sequelize: database }
 );
 
- //Post.sync();// ESTO LO USO CON SEQUALIZE EN LOCAL ARCHIVO
 
 
 module.exports = { Post };

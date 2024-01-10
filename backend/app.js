@@ -3,14 +3,13 @@ const session = require('express-session');
 const bodyParser = require("body-parser");
 const cors = require('cors');
 const path = require("path")
-const { database } = require("./database/connectionSequelize");
-//const { database } = require("./database/databaseMMSQL");
 const postRoutes = require("./routes/post")
 const userRoutes = require("./routes/user");
 const commentsRoutes = require("./routes/comment");
 const likeRoutes = require("./routes/like");
-const { Like } = require("./database/models/likes");
-const { Comment } = require("./database/models/comments");
+const { database } = require("./database/connectionSequelize");
+//const { database } = require("./database/databaseMMSQL");
+
 
 const app = express();
 
@@ -23,9 +22,8 @@ database
     console.error("Unable to connect to the database:", error);
   
   });
- // Comment.sync()
-  // Like.sync()
-  database.sync({ force: false }) // setea force a true para re-crear las tablas en cada inicio (en desarrollo)
+
+  database.sync({ force: false }) 
      .then(() => {
          console.log('Base de datos sincronizada');
           // Inicia tu aplicación aquí
