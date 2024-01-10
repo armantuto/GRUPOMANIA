@@ -1,6 +1,6 @@
 ﻿# GRUPOMANIA
 
-  The app is configured with Sql Lite
+  The app is configured with Sql Lite local
 
   to be able to run this code you will have to:
 
