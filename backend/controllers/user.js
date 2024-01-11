@@ -1,10 +1,13 @@
 const { User } = require("../database/models/user");
 const { Post } = require("../database/models/post");
+const { Comment } = require("../database/models/comments");
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken");
 const SECRET = require("../config");
 const fs = require("fs");
-// incluir codigo para cargar y modificar la imagen del usuario
+const { Like } = require("../database/models/likes");
+
+
 
 exports.signup = async (req, res, next) => {
   try {
@@ -47,51 +50,6 @@ exports.login = async (req, res, next) => {
   }
 };
 
-
-exports.delete = async (req, res, next) => {
-  try {
-    const current_user = req.user.userId;
-    console.log("Userid", current_user);
-
-    const id = req.params.id;
-    console.log(id);
-    const user = await User.findOne({ where: { id: id } });
-    if (!user) {
-      return res.status(400).json({ error: "user not found" });
-    }
-    if (current_user != user.id) res.status(400).json({ error: "The user is not you, only can delete yourself" });
-
-    // Obtén la ruta de la imagen del usuario antes de eliminar el usuario
-  
-    // Elimina la foto del usuario si existe
-    if (user.image) {
-      
-      const previousImagePath = `imagesUsers/${user.image.split('/imagesUsers/')[1]}`;
-      fs.unlink(previousImagePath, (err) => {
-        if (err) {
-          console.error('Error deleting previous image:', err);
-        }
-      })
-    }
-
-    const userPosts = await Post.findAll({ where: { userId: id } });
-    for (const post of userPosts) {
-      if (post.imageUrl) {
-        const postImagePath = `images/${post.imageUrl.split('/images/')[1]}`;
-        fs.unlink(postImagePath, (err) => {
-          if (err) {
-            console.error('Error deleting previous image:', err);
-          }
-        })
-      }
-    }
-    
-    await User.destroy({ where: { id: id } });
-    return res.status(200).json(user);
-  } catch (error) {
-    return res.status(400).json({ error: error.message });
-  }
-};
 
 
 exports.get = async (req, res, next) => {
@@ -175,6 +133,74 @@ exports.getById = async (req, res, next) => {
         return res.status(200).json(user)        
     
     
+  } catch (error) {
+    return res.status(400).json({ error: error.message });
+  }
+};
+
+
+
+exports.delete = async (req, res, next) => {
+  try {
+    const current_user = req.user.userId;
+    console.log("Userid", current_user);
+
+    const id = req.params.id;
+    console.log(id);
+    const user = await User.findOne({ where: { id: id } });
+    if (!user) {
+      return res.status(400).json({ error: "user not found" });
+    }
+    if (current_user != user.id) res.status(400).json({ error: "The user is not you, only can delete yourself" });
+
+    // Obtén la ruta de la imagen del usuario antes de eliminar el usuario
+    // Elimina la foto del usuario si existe
+    if (user.image) {
+      const previousImagePath = `imagesUsers/${user.image.split('/imagesUsers/')[1]}`;
+      fs.unlink(previousImagePath, (err) => {
+        if (err) {
+          console.error('Error deleting previous image:', err);
+        }
+      });
+    }
+
+    // Encuentra y elimina los comentarios asociados a los posts del usuario
+    const userPosts = await Post.findAll({ where: { userId: id } });
+    for (const post of userPosts) {
+      // Encuentra y elimina los comentarios asociados a este post específico
+      const userComments = await Comment.findAll({ where: { postId: post.id, userId: id } });
+      for (const comment of userComments) {
+        await comment.destroy();
+      }
+
+      // Elimina la imagen asociada al post si existe
+      if (post.imageUrl) {
+        const postImagePath = `images/${post.imageUrl.split('/images/')[1]}`;
+        fs.unlink(postImagePath, (err) => {
+          if (err) {
+            console.error('Error deleting post image:', err);
+          }
+        });
+      }
+
+      // Elimina el post después de eliminar los comentarios asociados y la imagen
+      await post.destroy();
+    }
+
+    // Encuentra y elimina todos los comentarios hechos por el usuario en otros posts
+    const userCommentsInOtherPosts = await Comment.findAll({ where: { userId: id } });
+    for (const comment of userCommentsInOtherPosts) {
+      await comment.destroy();
+    }
+    const userLikesInOtherPosts = await Like.findAll({ where: { userId: id } });
+    for (const likes of userLikesInOtherPosts) {
+      await likes.destroy();
+    }
+
+
+    // Finalmente, elimina al usuario
+    await User.destroy({ where: { id: id } });
+    return res.status(200).json(user);
   } catch (error) {
     return res.status(400).json({ error: error.message });
   }

@@ -20,31 +20,6 @@ exports.get = async (req, res, next) => {
   };
 
   
-  exports.getCommentsByPostId = async (req, res, next) => {
-    try {
-      const postId = req.query.postId;
-  
-      if (!postId || isNaN(postId)) {
-        return res.status(400).json({ error: "Invalid post ID" });
-      }
-  
-      // Verifica si el post existe
-      const post = await Post.findByPk(postId);
-      if (!post) {
-        return res.status(400).json({ error: "Post not found" });
-      }
-  
-      // Obtiene los comentarios asociados al post
-      const comments = await Comment.findAll({
-        where: { postId: postId },
-      });
-  
-      return res.status(200).json(comments);
-    } catch (error) {
-      return res.status(400).json({ error: error.message });
-    }
-  };
-
   
 exports.create = async (req, res, next) => {
     try { 
@@ -67,8 +42,6 @@ exports.create = async (req, res, next) => {
     }
   };
   
-
-  // hacer delete, y update comment//
 
 
 exports.delete = async (req, res, next) => {
@@ -133,3 +106,30 @@ exports.update = async (req, res, next) => {
     return res.status(400).json({ error: error.message });
   }
 };
+
+
+
+  exports.getCommentsByPostId = async (req, res, next) => {
+    try {
+      const postId = req.query.postId;
+  
+      if (!postId || isNaN(postId)) {
+        return res.status(400).json({ error: "Invalid post ID" });
+      }
+  
+      // Verifica si el post existe
+      const post = await Post.findByPk(postId);
+      if (!post) {
+        return res.status(400).json({ error: "Post not found" });
+      }
+  
+      // Obtiene los comentarios asociados al post
+      const comments = await Comment.findAll({
+        where: { postId: postId },
+      });
+  
+      return res.status(200).json(comments);
+    } catch (error) {
+      return res.status(400).json({ error: error.message });
+    }
+  };

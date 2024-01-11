@@ -221,7 +221,7 @@ const PostComponent = ({ posts, onRefresh }) => {
                         )}
                         <div className='buttons'>
                             {post.Likes.length === 0 ? (
-                                <button className='like' onClick={() => doLike(post.id)}><AiFillLike />{ } Likes</button>
+                                <button className='like' onClick={() => doLike(post.id)}><AiFillLike />{ post.Likes.length} Likes</button>
                             ) :
                                 (
                                     <button className='likeactive' onClick={() => doLike(post.id)}><AiFillLike />{post.Likes.length} Likes</button>

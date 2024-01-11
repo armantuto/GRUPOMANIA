@@ -61,9 +61,9 @@ exports.getById = async (req, res, next) => {
   }
 };
 
+
 exports.delete = async (req, res, next) => {
   try {
-
     const current_user = req.user.userId;
     console.log("Userid", current_user)
 
@@ -73,10 +73,14 @@ exports.delete = async (req, res, next) => {
     if (!post) {
       return res.status(400).json({ error: "post not found" })
     }
-    //verifico che el usuario logged sea el que creo el post.
+    // Verifico que el usuario loggeado sea el que creó el post.
     if (current_user != post.userId) res.status(400).json({ error: "Post not created by the user logged" })
 
-    await Post.destroy({ where: { id: id } })
+    // Elimina los comentarios asociados al post
+    await Comment.destroy({ where: { postId: id } });
+    
+    // Elimina el post
+    await Post.destroy({ where: { id: id } });
 
     const filename = post.imageUrl.split("/images/")[1]
     fs.unlink("images/" + filename, () => console.log("deleted"))
@@ -87,6 +91,7 @@ exports.delete = async (req, res, next) => {
     return res.status(400).json({ error: error.message });
   }
 };
+
 
 exports.update = async (req, res, next) => {
   try {

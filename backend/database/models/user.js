@@ -36,6 +36,7 @@ User.init(
 
 User.hasMany(Post, {
   foreignKey: { allowNull: false, name: "userId" },
+  
 });
 
 Post.belongsTo(User, {
